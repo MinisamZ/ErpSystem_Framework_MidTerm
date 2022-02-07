@@ -6,11 +6,63 @@
 </head>
 <body>
 <form action="#" th:action="@{/user-create}" th:object="${user}" method="post">
-    <label for="firstName">First name</label>
-    <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
-    <label for="lastName">Last name</label>
-    <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
-    <input type="submit" value="Create User">
+    <table>
+        <tr>
+            <td>
+                <label for="cardNumber">Card number</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{cardNumber}" id="cardNumber" placeholder="Card number">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="firstName">First name</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="lastName">Last name</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Password</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{password}" id="password" placeholder="Password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="cardExpiryDate">Card expiry date</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{cardExpiryDate}" id="cardExpiryDate" placeholder="Card expiry date">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="CVV">CVV</label>
+            </td>
+            <td>
+                <input type="text" th:field="*{CVV}" id="CVV" placeholder="CVV">
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Create User">
+            </td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>
