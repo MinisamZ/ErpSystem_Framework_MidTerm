@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -21,41 +22,46 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/users")
+    @RequestMapping(value = "/main")
+    public String getMainPage() {
+        return "main-page";
+    }
+
+    @GetMapping("/admin/users")
     public String findAll(Model model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
-        return "user-list";
+        return "admin/user-list";
     }
 
-    @GetMapping("/user-create")
+    @GetMapping("/admin/user-create")
     public String createUserForm(User user) {
-        return "user-create";
+        return "admin/user-create";
     }
 
-    @PostMapping("/user-create")
+    @PostMapping("/admin/user-create")
     public String createUser(User user) {
         System.out.println(user.toString());
         userService.saveUser(user);
-        return "redirect:/users";
+        return "redirect:/admin/users";
     }
 
-    @GetMapping("user-delete/{id}")
+    @GetMapping("admin/user-delete/{id}")
     public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteById(id);
-        return "redirect:/users";
+        return "redirect:/admin/users";
     }
 
-    @GetMapping("/user-update/{id}")
+    @GetMapping("/admin/user-update/{id}")
     public String updateUserForm(@PathVariable("id") Long id, Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
-        return "user-update";
+        return "admin/user-update";
     }
 
-    @PostMapping("/user-update")
+    @PostMapping("/admin/user-update")
     public String updateUser(User user) {
         userService.saveUser(user);
-        return "redirect:/users";
+        return "redirect:/admin/users";
     }
 }
