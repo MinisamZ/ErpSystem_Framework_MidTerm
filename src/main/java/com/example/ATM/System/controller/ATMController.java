@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Optional;
-
 @Controller
 public class ATMController {
     private final BankAccountRepositroy bankAccountRepositroy;
@@ -32,10 +30,13 @@ public class ATMController {
 
     @PostMapping("/user/login")
     public String login(User user, Model model) {
-        bankAccountRepositroy.verification(user.cardNumber, user.getPassword());
-        user = bankAccountRepositroy.findByCardNumber(user.cardNumber);
-        model.addAttribute("user", user);
-        return "user/atm";
+        if (null == bankAccountRepositroy.verification(user.cardNumber, user.getPassword()))
+            return "user/login";
+        else {
+            user = bankAccountRepositroy.findByCardNumber(user.cardNumber);
+            model.addAttribute("user", user);
+            return "user/atm";
+        }
     }
 
     @GetMapping("/user/login/{cardNumber}")

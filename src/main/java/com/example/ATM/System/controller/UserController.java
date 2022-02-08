@@ -114,9 +114,9 @@ public class UserController {
 
     @PostMapping("/user/changePin")
     public String changePin(User user) {
-        int moneySum = user.getMoney();
+        String moneySum = user.getPassword();
         user = userService.findById(user.getId());
-        user.setMoney(moneySum);
+        user.setPassword(moneySum);
         userService.saveUser(user);
         return "user/login";
     }
