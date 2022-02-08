@@ -83,7 +83,7 @@ public class UserController {
     public String withdrawMoney(User user) {
         int moneySum = user.getMoney();
         user = userService.findById(user.getId());
-        user.setMoney(moneySum);
+        user.setMoney(user.getMoney() - moneySum);
         userService.saveUser(user);
         return "user/login";
     }
@@ -99,7 +99,7 @@ public class UserController {
     public String topUpAccount(User user) {
         int moneySum = user.getMoney();
         user = userService.findById(user.getId());
-        user.setMoney(moneySum);
+        user.setMoney(user.getMoney() + moneySum);
         userService.saveUser(user);
         return "user/login";
     }
