@@ -88,4 +88,36 @@ public class UserController {
         userService.saveUser(user);
         return "user/login";
     }
+
+    @GetMapping("/user/topUpAccount/{id}")
+    public String topUpAccountForm(@PathVariable("id") Long id, Model model) {
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+        return "user/withdrawMoney";
+    }
+
+    @PostMapping("/user/topUpAccount")
+    public String topUpAccount(User user) {
+        int moneySum = user.getMoney();
+        user = userService.findById(user.getId());
+        user.setMoney(moneySum);
+        userService.saveUser(user);
+        return "user/login";
+    }
+
+    @GetMapping("/user/changePin/{id}")
+    public String changePinForm(@PathVariable("id") Long id, Model model) {
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+        return "user/changePin";
+    }
+
+    @PostMapping("/user/changePin")
+    public String changePin(User user) {
+        int moneySum = user.getMoney();
+        user = userService.findById(user.getId());
+        user.setMoney(moneySum);
+        userService.saveUser(user);
+        return "user/login";
+    }
 }

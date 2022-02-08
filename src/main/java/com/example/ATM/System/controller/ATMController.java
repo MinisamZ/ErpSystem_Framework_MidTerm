@@ -32,7 +32,6 @@ public class ATMController {
 
     @PostMapping("/user/login")
     public String login(User user, Model model) {
-        System.out.println("123");
         bankAccountRepositroy.verification(user.cardNumber, user.getPassword());
         user = bankAccountRepositroy.findByCardNumber(user.cardNumber);
         model.addAttribute("user", user);
@@ -55,4 +54,5 @@ public class ATMController {
         System.out.println(user.toString());
         return "user/balance";
     }
+
 }

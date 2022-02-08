@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <meta charset="UTF-8">
-<title>Create user</title>
+<title>Withdraw Money</title>
 </head>
 <body>
+<h2>Withdraw Money</h2>
 <form action="#" th:action="@{/user/withdrawMoney}" th:object="${user}" method="post">
     <label for="id">ID</label>
     <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
@@ -11,7 +12,7 @@
     <label for="money">money</label>
     <input type="text" th:field="*{money}" id="money" placeholder="money">
     <br/>
-    <input type="submit" value="Sum">
+    <input type="submit" value="Withdraw Money">
 </form>
 </body>
 </html>
