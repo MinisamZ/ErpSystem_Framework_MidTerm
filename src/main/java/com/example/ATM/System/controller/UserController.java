@@ -72,4 +72,20 @@ public class UserController {
         userService.saveUser(user);
         return "redirect:/admin/users";
     }
+
+    @GetMapping("/user/withdrawMoney/{id}")
+    public String withdrawMoneyForm(@PathVariable("id") Long id, Model model) {
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+        return "user/withdrawMoney";
+    }
+
+    @PostMapping("/user/withdrawMoney")
+    public String withdrawMoney(User user) {
+        int moneySum = user.getMoney();
+        user = userService.findById(user.getId());
+        user.setMoney(moneySum);
+        userService.saveUser(user);
+        return "user/login";
+    }
 }

@@ -11,10 +11,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "first_name")
-    private String firstName;
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "name")
+    private String name;
     @Column(name = "сard_number")
     public String cardNumber;
     @Column(name = "password")
@@ -22,5 +20,7 @@ public class User {
     @Column(name = "card_expiry_date")
     public String cardExpiryDate;
     @Column(name = "cvv")
-    private String CVV;
+    private int CVV;
+    @Column(name = "money")
+    private int money;
 }

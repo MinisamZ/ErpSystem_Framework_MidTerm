@@ -4,14 +4,14 @@
 <title>Create user</title>
 </head>
 <body>
-<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
+<form action="#" th:action="@{/user/withdrawMoney}" th:object="${user}" method="post">
     <label for="id">ID</label>
     <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
     <br/>
-    <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name">
+    <label for="money">money</label>
+    <input type="text" th:field="*{money}" id="money" placeholder="money">
     <br/>
-    <input type="submit" value="Update User">
+    <input type="submit" value="Sum">
 </form>
 </body>
 </html>

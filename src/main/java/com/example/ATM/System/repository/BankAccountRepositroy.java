@@ -12,4 +12,5 @@ public interface BankAccountRepositroy extends JpaRepository<User, Long> {
 
     @Query("select b from User b where b.cardNumber = :сard_number and b.password = :password")
     User verification(@Param("сard_number") String cardNumber, @Param("password") String password);
+
 }

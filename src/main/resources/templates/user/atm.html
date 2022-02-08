@@ -7,19 +7,18 @@
 </head>
 <body>
 <p th:text="'Hello, ' + ${user.cardNumber} + '!'"/>
-<p th:text="'Hello, ' + ${user.firstName} + '!'"/>
-<a href="/">
+<p th:text="'Hello, ' + ${user.name} + '!'"/>
+<a th:href="@{'/user/balance/' + ${user.cardNumber}}">
     <button>Balance</button>
 </a>
-<a href="/">
+<a th:href="@{'/user/withdrawMoney/' + ${user.id}}">
     <button>Withdraw money</button>
 </a>
-<a href="/">
+<a th:href="@{'/user/topUpAccount/' + ${user.id}}">
     <button>Top up account</button>
 </a>
-<a href="/">
+<a th:href="@{'/user/changePin/' + ${user.id}}">
     <button>Change pin</button>
 </a>
-
 </body>
 </html>

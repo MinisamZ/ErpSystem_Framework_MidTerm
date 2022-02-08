@@ -13,6 +13,9 @@ public class BankService {
     public BankService(BankAccountRepositroy bankAccountRepositroy) {
         this.bankAccountRepositroy = bankAccountRepositroy;
     }
+    public User saveUser(User user) {
+        return bankAccountRepositroy.save(user);
+    }
 
     public User findCardNumber(String cardNumber) {
         return bankAccountRepositroy.findByCardNumber(cardNumber);

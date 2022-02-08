@@ -15,8 +15,7 @@
             <tr>
                 <th>Id</th>
                 <th>Card number</th>
-                <th>First name</th>
-                <th>Last name</th>
+                <th>Name</th>
                 <th>Password</th>
                 <th>Card expiry date</th>
                 <th>CVV</th>
@@ -26,8 +25,7 @@
             <tr th:each="user : ${users}">
                 <td th:text="${user.id}"></td>
                 <td th:text="${user.cardNumber}"></td>
-                <td th:text="${user.firstName}"></td>
-                <td th:text="${user.lastName}"></td>
+                <td th:text="${user.name}"></td>
                 <td th:text="${user.password}"></td>
                 <td th:text="${user.cardExpiryDate}"></td>
                 <td th:text="${user.CVV}"></td>
