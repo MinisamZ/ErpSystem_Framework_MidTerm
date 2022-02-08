@@ -29,7 +29,6 @@ public class UserController {
 
     @RequestMapping(value = "/list")
     public String getListOfAccounts(Model model) {
-//        getListOfAccounts
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
         return "list";
