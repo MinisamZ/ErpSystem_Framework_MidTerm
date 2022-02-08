@@ -92,7 +92,7 @@ public class UserController {
     public String topUpAccountForm(@PathVariable("id") Long id, Model model) {
         User user = userService.findById(id);
         model.addAttribute("user", user);
-        return "user/withdrawMoney";
+        return "user/topUpAccount";
     }
 
     @PostMapping("/user/topUpAccount")
