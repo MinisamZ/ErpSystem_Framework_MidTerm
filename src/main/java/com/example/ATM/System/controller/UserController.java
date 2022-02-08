@@ -27,6 +27,14 @@ public class UserController {
         return "main-page";
     }
 
+    @RequestMapping(value = "/list")
+    public String getListOfAccounts(Model model) {
+//        getListOfAccounts
+        List<User> users = userService.findAll();
+        model.addAttribute("users", users);
+        return "list";
+    }
+
     @GetMapping("/admin/users")
     public String findAll(Model model) {
         List<User> users = userService.findAll();

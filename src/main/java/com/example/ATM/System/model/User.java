@@ -16,11 +16,11 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "сard_number")
-    private String cardNumber;
+    public String cardNumber;
     @Column(name = "password")
     private String password;
     @Column(name = "card_expiry_date")
-    private String cardExpiryDate;
+    public String cardExpiryDate;
     @Column(name = "cvv")
     private String CVV;
 }
