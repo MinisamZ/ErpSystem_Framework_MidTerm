@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Textiles</title>
+    <title>Покупка товаров</title>
 </head>
 <body>
 <div th:switch="${textiles}">
     <h2 th:case="null">No textiles found!</h2>
     <div th:case="*">
-        <h2>Textiles</h2>
+        <h2>Покупка товаров</h2>
         <table cellpadding="7" border="1">
             <thead>
             <tr>
@@ -28,12 +28,13 @@
                 <td th:text="${textile.address}"></td>
                 <td th:text="${textile.cash}"></td>
                 <td th:text="${textile.actual}"></td>
-                <td><a th:href="@{textile-delete/{id}(id=${textile.id})}">Delete</a></td>
+                <td><a th:href="@{textile-buyItem/{id}(id=${textile.id})}">Buy</a></td>
             </tr>
             </tbody>
         </table>
     </div>
-<!--    <p><a href="/textiles-create">Create textiles</a></p>-->
+    <!--    <p><a href="/textiles-create">Create textiles</a></p>-->
 </div>
+
 </body>
 </html>

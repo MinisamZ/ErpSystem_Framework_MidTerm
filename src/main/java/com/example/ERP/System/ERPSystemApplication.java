@@ -1,13 +1,13 @@
-package com.example.ATM.System;
+package com.example.ERP.System;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AtmSystemApplication {
+public class ERPSystemApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AtmSystemApplication.class, args);
+        SpringApplication.run(ERPSystemApplication.class, args);
     }
 
 }

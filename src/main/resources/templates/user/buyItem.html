@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:switch="${textile}">
+    <h2 th:case="null">No textiles found!</h2>
+    <div th:case="*">
+        <h2>Покупка товара</h2>
+        <table cellpadding="7" border="1">
+
+            <tr>
+                <form action="#" th:action="@{/user/textile-buyItem}" th:object="${user}" method="post">
+                    <td><input readonly type="number" th:field="${textile.id}" id="id" placeholder="ID"></td>
+                    <td th:text="${textile.material}"></td>
+                    <td><input type="text" th:field="${textile.quantity}" id="quantity" placeholder="quantity"></td>
+                    <td th:text="${textile.address}"></td>
+                    <td th:text="${textile.cash}"></td>
+                    <td th:text="${textile.actual}"></td>
+                    <td><input type="submit" value="buy"></td>
+                </form>
+            </tr>
+        </table>
+    </div>
+    <!--    <p><a href="/textiles-create">Create textiles</a></p>-->
+</div>
+
+</body>
+</html>
