@@ -56,9 +56,11 @@ public class TextileController {
 
     @PostMapping("user/textile-buyItem")
     public String buyTextile2(Textile textile) {
+        System.out.println("buyTextile2");
         int count = textile.getQuantity();
         textile.setQuantity(textile.getQuantity() - count);
-        textileService.saveTextile(textile);
+        System.out.println(textile.getQuantity() + " " + textile.getId());
+        textileService.updateById(textile);
         return "user/buy";
 
     }

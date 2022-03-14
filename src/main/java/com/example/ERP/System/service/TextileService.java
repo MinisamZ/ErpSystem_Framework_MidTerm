@@ -31,4 +31,8 @@ public class TextileService {
     public void deleteById(Long id) {
         textileRepository.deleteById(id);
     }
+
+    public void updateById(Textile textile) {
+        textileRepository.updateMaterial(textile.getId(), textile.getQuantity());
+    }
 }
