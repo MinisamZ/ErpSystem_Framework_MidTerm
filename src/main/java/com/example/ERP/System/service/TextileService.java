@@ -3,6 +3,7 @@ package com.example.ERP.System.service;
 import com.example.ERP.System.model.Textile;
 import com.example.ERP.System.repository.TextileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,7 +33,10 @@ public class TextileService {
         textileRepository.deleteById(id);
     }
 
-    public void updateById(Textile textile) {
-        textileRepository.updateMaterial(textile.getId(), textile.getQuantity());
+    public void updateById(long i, int s) {
+        System.out.println("updateById");
+        System.out.println(i + "-" + s);
+
+        textileRepository.updateMaterial(i, s);
     }
 }
