@@ -66,6 +66,7 @@ public class TextileController {
         Textile textile = textileService.findById(id);
         System.out.println(textile);
         model.addAttribute("textile", textile);
+        // дописать апдейт
         return "/user/buyItem";
     }
 
