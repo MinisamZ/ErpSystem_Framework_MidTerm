@@ -1,9 +1,10 @@
 package com.example.ERP.System.service;
 
+import com.example.ERP.System.model.Stock;
 import com.example.ERP.System.model.Textile;
+import com.example.ERP.System.repository.StockRepository;
 import com.example.ERP.System.repository.TextileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,10 +12,15 @@ import java.util.List;
 @Service
 public class TextileService {
     private final TextileRepository textileRepository;
+    private final StockRepository stockRepository;
 
     @Autowired
-    public TextileService(TextileRepository textileRepository) {
+    public TextileService(TextileRepository textileRepository, StockRepository stockRepository) {
         this.textileRepository = textileRepository;
+        this.stockRepository = stockRepository;
+    }
+    public List<Stock> findAllStocks(){
+        return stockRepository.findAll();
     }
 
     public Textile findById(Long id) {

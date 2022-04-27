@@ -2,10 +2,7 @@ package com.example.ERP.System.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -18,11 +15,32 @@ public class Textile {
     private String material;
     @Column(name = "quantity")
     private int quantity;
-    @Column(name = "address")
-    private String address;
     @Column(name = "cash")
     private String cash;
     @Column(name = "actual")
     private String actual;
+
+    //    @MapsId(value = "stockId")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "stock_id", insertable = false, updatable = false)
+    private Stock stock;
+
+    @Override
+    public String toString() {
+        return "Textile{" +
+                "id=" + id +
+                ", material='" + material + '\'' +
+                ", quantity=" + quantity +
+                ", cash='" + cash + '\'' +
+                ", actual='" + actual + '\'' +
+                '}';
+    }
+
+//    @Column(name = "stock_id")
+//    private String stockTextile;
+
+    //    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id_address")
+
 
 }
