@@ -36,11 +36,4 @@ public class Textile {
                 '}';
     }
 
-//    @Column(name = "stock_id")
-//    private String stockTextile;
-
-    //    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "id_address")
-
-
 }
