@@ -21,6 +21,16 @@ public class TextileController {
         this.textileService = textileService;
     }
 
+    @GetMapping(value = "/")
+    public String getHomePage() {
+        return "home";
+    }
+
+    @GetMapping(value = "/hello")
+    public String getHelloPage() {
+        return "hello";
+    }
+
     @RequestMapping(value = "/main")
     public String getMainPage() {
         return "main-page";
@@ -65,13 +75,24 @@ public class TextileController {
         System.out.println(textile.getQuantity() + " " + textile.getId());
         textile.setQuantity(50);
         System.out.println(textile);
-        textileService.updateById(textile.getId(),textile.getQuantity());
+//        textileService.updateById(textile.getId(),textile.getQuantity());
         return "user/buy";
 
+    }
+
+    @RequestMapping(value = "/textile-create")
+    public String getTextileCreate() {
+        return "textile-create";
+    }
+
+    @PostMapping(value = "/textile-create")
+    public void postTextileCreate(Textile textile) {
+        textileService.saveTextile(textile);
     }
 
     @GetMapping(value = "/error")
     public String error() {
         return "error";
     }
+
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create textile</title>
+</head>
+<body>
+<form action="#" th:action="@{/textile-create}" th:object="${textile}" method="post">
+    <table>
+        <tr>
+            <td>
+                <!--                <label for="textile.material">material</label>-->
+            </td>
+            <td>
+                <input type="text" th:field="*{material}" id="material" placeholder="material">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--                <label for="textile.quantity">quantity</label>-->
+            </td>
+            <td>
+                <input type="text" th:field="*{quantity}" id="quantity" placeholder="quantity">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--                <label for="textile.address">address</label>-->
+            </td>
+            <td>
+                <input type="text" th:field="*{address}" id="address" placeholder="address">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!--                <label for="textile.cash">cash</label>-->
+            </td>
+            <td>
+                <input type="text" th:field="*{cash}" id="cash" placeholder="cash">
+            </td>
+        </tr>
+        <!--        `id`, `material`, `.quantity`, `address`, `cash`, `actual`-->
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Create Textile">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
