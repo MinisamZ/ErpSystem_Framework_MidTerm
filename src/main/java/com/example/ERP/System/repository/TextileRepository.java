@@ -12,7 +12,7 @@ public interface TextileRepository extends JpaRepository<Textile, Long> {
     @Modifying
     @Query("update Textile t set t.quantity = :quantity where t.id = :id")
     void updateMaterial(Long id, int quantity);
-    
+
 
 //    void updateMaterial(@Param("id") Long id, @Param("quantity") int quantity);
 

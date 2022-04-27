@@ -72,18 +72,18 @@ public class TextileController {
 //    @RequestMapping(value = "user/textile-buyItem/", method = RequestMethod.POST)
 //    public String buyTextile2( Textile textile) {
 
-//    @PostMapping("user/textile-buyItem")
-//    public String buyTextile2(Textile textile) {
-//        System.out.println("buyTextile2");
-//        int count = textile.getQuantity();
-//        textile.setQuantity(textile.getQuantity() - count);
-//        System.out.println(textile.getQuantity() + " " + textile.getId());
-//        textile.setQuantity(50);
-//        System.out.println(textile);
-////        textileService.updateById(textile.getId(),textile.getQuantity());
-//        return "user/buy";
-//
-//    }
+    @PostMapping("user/textile-buyItem")
+    public String buyTextile2(Textile textile) {
+        System.out.println("buyTextile2");
+        int count = textile.getQuantity();
+        textile.setQuantity(textile.getQuantity() - count);
+        System.out.println(textile.getQuantity() + " " + textile.getId());
+        textile.setQuantity(50);
+        System.out.println(textile);
+//        textileService.updateById(textile.getId(),textile.getQuantity());
+        return "user/buy";
+
+    }
 
     @RequestMapping(value = "/textile-create")
     public String getTextileCreate() {

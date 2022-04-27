@@ -8,7 +8,19 @@
 <div th:switch="${textiles}">
     <h2 th:case="null">No textiles found!</h2>
     <div th:case="*">
-        <h2>Textiles</h2>
+
+        <table width="100%">
+            <tr>
+                <td>
+                    <h2>Textiles</h2>
+                </td>
+                <td align="right">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Sign Out"/>
+                    </form>
+                </td>
+            </tr>
+        </table>
         <table cellpadding="7" border="1">
             <thead>
             <tr>
@@ -25,7 +37,7 @@
                 <td th:text="${textile.id}"></td>
                 <td th:text="${textile.material}"></td>
                 <td th:text="${textile.quantity}"></td>
-                <td th:text="${textile.address}"></td>
+                <td th:text="${textile.stock.address}"></td>
                 <td th:text="${textile.cash}"></td>
                 <td th:text="${textile.actual}"></td>
                 <td><a th:href="@{textile-delete/{id}(id=${textile.id})}">Delete</a></td>
@@ -35,8 +47,5 @@
     </div>
     <!--    <p><a href="/textiles-create">Create textiles</a></p>-->
 </div>
-<form th:action="@{/logout}" method="post">
-    <input type="submit" value="Sign Out"/>
-</form>
 </body>
 </html>
