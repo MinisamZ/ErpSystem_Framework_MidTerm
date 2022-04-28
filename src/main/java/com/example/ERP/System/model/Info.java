@@ -24,7 +24,7 @@ public class Info {
     private Long costs;
 
     @Column(name = "actual", nullable = false)
-    private Date actual;
+    private String actual;
 
 
 }

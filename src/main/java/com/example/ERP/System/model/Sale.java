@@ -3,8 +3,6 @@ package com.example.ERP.System.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.time.Instant;
 
 
 @Data
@@ -23,6 +21,6 @@ public class Sale {
     @Column(name = "cash", nullable = false)
     private Long cash;
     @Column(name = "actual", nullable = false)
-    private Date actual;
+    private String actual;
 
 }

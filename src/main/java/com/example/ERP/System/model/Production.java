@@ -19,6 +19,6 @@ public class Production {
     @Column(name = "quantity", nullable = false)
     private Long quantity;
     @Column(name = "actual", nullable = false)
-    private Date actual;
+    private String actual;
 
 }
