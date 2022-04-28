@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class UserController {
     private final UserService userService;
@@ -17,7 +19,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/user/buId/{id}")
+    @GetMapping("/user/byId/{id}")
     public User deleteUser(@PathVariable("id") Long id) {
         return userService.getById(id);
     }
@@ -26,8 +28,12 @@ public class UserController {
     public User createUser(User user) {
         return userService.createUser(user);
     }
+    @PostMapping("/user/createMoreOne")
+    public List<User> createUser(List<User> users) {
+        return userService.createUsers(users);
+    }
 
-    @PostMapping("/user/uodateById/{id}")
+    @PostMapping("/user/updateById/{id}")
     public User updateUserWithoutPass(@PathVariable("id") Long id, User user) {
         User user1 = userService.getById(id);
         if (user.getLogin() != null || !user.getLogin().equals(""))
@@ -38,7 +44,6 @@ public class UserController {
             user1.setCountry(user.getCountry());
         if (user.getGender() != null || !user.getGender().equals(""))
             user1.setGender(user.getGender());
-
         return userService.createUser(user1);
     }
 
@@ -47,6 +52,8 @@ public class UserController {
         User user1 = userService.getById(id);
         user1.setPassword(pass);
         return userService.createUser(user1);
+
     }
+
 
 }

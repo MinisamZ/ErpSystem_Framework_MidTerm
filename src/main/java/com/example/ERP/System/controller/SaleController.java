@@ -4,6 +4,7 @@ import com.example.ERP.System.model.Sale;
 import com.example.ERP.System.service.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,5 +21,9 @@ public class SaleController {
     @GetMapping("/sale")
     public List<Sale> getListSale() {
         return saleService.getAll();
+    }
+    @PostMapping("/sale/create")
+    public Sale createSale(Sale sale){
+        return saleService.save(sale);
     }
 }

@@ -17,4 +17,6 @@ public class SaleService {
     public List<Sale> getAll() {
         return saleRepository.findAll();
     }
+    public Sale save(Sale sale){return saleRepository.save(sale);}
+
 }
