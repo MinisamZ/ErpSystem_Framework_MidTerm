@@ -1,7 +1,7 @@
 package com.example.ERP.System.controller;
 
 import com.example.ERP.System.model.User;
-import com.example.ERP.System.service.UserService;
+import com.example.ERP.System.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,10 +12,10 @@ import java.util.List;
 
 @RestController
 public class UserController {
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 

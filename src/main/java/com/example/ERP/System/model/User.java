@@ -3,6 +3,7 @@ package com.example.ERP.System.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -21,13 +22,16 @@ public class User {
     private String country;
     @Column(name = "gender")
     private String gender;
-    @Column(name = "reg_date")
-    private String redData;
-    @Column(name = "active")
-    private boolean active;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
-    private Role roles;
+    @Column(name = "active")
+    private Boolean active;
+
+    @Column(name = "reg_date")
+    private LocalDateTime regDate = LocalDateTime.now();
+
+    @Enumerated(EnumType.STRING)
+    private RoleEnum role;
+
+
 }
 
